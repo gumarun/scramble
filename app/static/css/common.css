@@ -5,8 +5,20 @@
 :root {
   /* bg-color */
   --bg-color-main: rgb(21, 21, 21);
+  --bg-color-secondary: rgb(32, 32, 32);
+  --bg-color-hover: rgb(227, 227, 227, 0.2);
   /* text-color */
   --text-color-main: rgb(227, 227, 227);
+  --text-color-error: rgb(234, 75, 86);
+  --text-color-submit: rgb(0, 150, 246);
+  --text-color-highlight: rgb(30, 155, 240);
+  /* border-color */
+  --border-color-main: rgba(100,100,100, 0.5);
+  /* border-radius */
+  --border-radius-8: 8px;
+  --border-radius-4: 4px;
+    /* transition */
+    --transition-bg-05: background-color 0.5s;
 }
 
 *,
@@ -89,4 +101,31 @@ img {
   height: auto;
   vertical-align: bottom;
   border: 0;
+}
+
+/*--------------
+----- root -----
+--------------*/
+.root-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+/* フラッシュメッセージ */
+.flash-message-box {
+  padding: 16px 32px;
+}
+
+.flash-message {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-message .user-name {
+  font-weight: bold;
+  color: rgb(103, 175, 226);
 }

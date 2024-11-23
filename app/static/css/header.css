@@ -1,0 +1,65 @@
+.root-header {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  background-color: var(--bg-color-secondary);
+}
+
+/* ロゴ */
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.logo a {
+  width: 100%;
+  padding: 0 16px;
+  border-radius: var(--border-radius-8);
+  transition: var(--transition-bg-05);
+}
+.logo a:hover {
+  background-color: var(--bg-color-hover);
+}
+
+/* ナビゲーション */
+.global-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+/* リスト */
+.global-nav ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.global-nav li {
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius-8);
+  transition: var(--transition-bg-05);
+}
+.global-nav li:hover {
+  background-color: var(--bg-color-hover);
+}
+
+.global-nav li a {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  line-height: 32px;
+}
+
+.nav-icon {
+  width: 32px;
+  height: auto;
+  margin-right: 8px;
+}
+
+.profile-icon {
+  border-radius: 50%;
+}

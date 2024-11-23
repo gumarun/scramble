@@ -26,8 +26,28 @@
 
 <body>
   <!-- Main -->
-  <main>{% block main %}{% endblock %}</main>
-  
+  <main>
+    <div class="root-main">
+    {% block root_content %}
+    
+    <!-- Header -->
+    {% block header_content %}{% endblock %}
+    
+    <!-- Main Contents -->
+    {% block main_content %}{% endblock %}
+    
+    <!-- Sidebar -->
+    {% block aside_content %}{% endblock %}
+    
+    {% endblock %}
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="root-footer">
+  {% block footer %}{% endblock %}
+  </footer>
+
   <!-- Script -->
   <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
   {% block script %}{% endblock %}
