@@ -8,14 +8,28 @@ from app import login_manager
 class User(UserMixin, db.Model):
     """ユーザーの基本情報を管理するモデルクラス"""
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    user_id = db.Column(db.String(30), unique=True, nullable=False)
-    username = db.Column(db.String(15), unique=True, nullable=False)
+    user_id = db.Column(db.String(30), unique=False, nullable=False)
+    username = db.Column(db.String(30), unique=False, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
+    location = db.Column(db.String(15), nullable=True)
+    link = db.Column(db.String(100), nullable=True)
+    intro = db.Column(db.String(150), nullable=True)
 
-    def __init__(self, user_id, username, password):
+    def __init__(
+            self,
+            user_id,
+            username,
+            password,
+            location,
+            link,
+            intro
+        ):
         self.user_id = user_id
         self.username = username
         self.set_password(password)
+        self.location = location
+        self.link = link
+        self.intro = intro
 
     def set_password(self, password):
         """パスワードをハッシュ化する

@@ -1,0 +1,101 @@
+<section class="container">
+  
+  
+  
+  <!-- Form -->
+  <form class="edit-profile" method="POST" autocomplete="off" novalidate>
+
+    <!-- Flash Message -->
+    <div class="flash-message-box">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+          <span class="flash-message {{ category }}">{{ message }}</span>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </div>
+
+    <!-- Hidden Field -->
+    {{ form.hidden_tag() }}
+
+    <!-- User Name -->
+    <div class="form-item">
+      <div class="form-input-wrap">
+        <span class="input-assist placeholder">ユーザー名</span>
+        <span class="input-assist char-count">
+          <span class="current-length">0</span>/
+          <span class="max-length">30</span>
+        </span>
+        {{ form.username() }}
+      </div>
+      <div class="field-error-box">
+        {% for error in form.username.errors %}
+        <span class="error-text">{{ error }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <!-- Location -->
+    <div class="form-item">
+      <div class="form-input-wrap">
+        <span class="input-assist placeholder">場所</span>
+        <span class="input-assist char-count">
+          <span class="current-length">0</span>/
+          <span class="max-length">15</span>
+        </span>
+        {{ form.location() }}
+      </div>
+      <div class="field-error-box">
+        {% for error in form.location.errors %}
+        <span class="error-text">{{ error }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <!-- Link -->
+    <div class="form-item">
+      <div class="form-input-wrap">
+        <span class="input-assist placeholder">ウェブサイト</span>
+        <span class="input-assist char-count">
+          <span class="current-length">0</span>/
+          <span class="max-length">100</span>
+        </span>
+        {{ form.link() }}
+      </div>
+      <div class="field-error-box">
+        {% for error in form.link.errors %}
+        <span class="error-text">{{ error }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <!-- Intro -->
+    <div class="form-item">
+      <div class="form-input-wrap">
+        <span class="input-assist placeholder">自己紹介</span>
+        <span class="input-assist char-count">
+          <span class="current-length">0</span>/
+          <span class="max-length">150</span>
+        </span>
+        {{ form.intro() }}
+      </div>
+      <div class="field-error-box">
+        {% for error in form.intro.errors %}
+        <span class="error-text">{{ error }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <!-- Submit -->
+    <div class="form-item">
+      <button class="form-button submit" type="submit" class="btn-submit">
+        {{ form.submit.label }}
+      </button>
+      <a class="form-button cancel" href="{{ url_for('main.profile') }}">
+        キャンセル
+      </a>
+    </div>
+    
+  </form>
+</section>

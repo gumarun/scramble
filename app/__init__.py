@@ -32,8 +32,8 @@ def create_app():
     bcrypt.init_app(app)
     login_manager.init_app(app)
 
-    # ログインに関する設定
-    login_manager.login_view = ''
+    # 未ログイン時のリダイレクト設定
+    login_manager.login_view = 'main.login'
     login_manager.login_message = 'ログインしてください。'
 
     # ブループリントを登録

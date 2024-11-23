@@ -1,108 +1,12 @@
-.time-line {
+@charset "utf-8";
+
+.time-line-container {
   display: grid;
+  height: 100vh;
   padding: 24px;
   overflow-y: auto;
-  height: 100vh;
   scrollbar-width: none;
 }
-.time-line::-webkit-scrollbar { 
+.time-line-container::-webkit-scrollbar { 
   display: none;
-}
-
-/* フィードセレクト */
-.feed-select ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 40px;
-}
-
-.feed-select ul li {
-  flex: 1;
-  text-align: center;
-}
-
-/* 投稿 */
-.post {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
-  border-radius: var(--border-radius-8);
-  color: var(--text-color-main);
-  background-color: var(--bg-color-main);
-  border-bottom: 1px solid var(--border-color-main);
-}
-
-.post__header,
-.post__footer {
-  display: flex;
-  align-items: center;
-  height: 40px;
-}
-
-/* ヘッダー */
-.post__header--item {
-  margin-left: 8px;
-}
-.post__header--item:first-child {
-  margin-left: 0;
-}
-
-.user-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #8f8f8f;/* dev */
-  cursor: pointer;
-}
-
-.post__header .user-name {
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.user-id,
-.date {
-  font-size: 0.9rem;
-  color: var(--text-color-secondary);
-}
-
-.option {
-  font-size: 1.2rem;
-  cursor: pointer;
-  margin-left: auto;
-}
-
-/* コンテンツ */
-.post__content {
-  padding: 16px 0;
-}
-
-.post__content--text {
-  line-height: 1.7;
-}
-
-.post__content--img {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--border-radius-4);
-}
-
-/* フッター */
-.post__footer--icon {
-  margin-left: 16px;
-  padding: 4px 8px;
-  cursor: pointer;
-}
-.post__footer--icon:first-child {
-  margin-left: 0;
-}
-
-.post__footer--icon img {
-  width: 24px;
-  height: 24px;
-}
-
-.share {
-  margin-left: auto;
 }

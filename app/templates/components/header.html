@@ -1,0 +1,79 @@
+<header class="global-header">
+  <!-- Logo -->
+  {% include 'components/logo.html' %}
+  
+  <!-- Navigation -->
+  <nav class="global-nav" aria-label="グローバルナビゲーション">
+    <ul>
+      {% if current_user.is_authenticated %}
+      <li>
+        <a href="{{ url_for('main.index') }}" aria-label="ホームに戻る">
+          <img class="nav-icon" src="{{ url_for('static', filename='images/home.svg') }}" alt="ホームアイコン">
+          ホーム
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('main.index') }}" aria-label="検索">
+          <img class="nav-icon" src="{{ url_for('static', filename='images/search.svg') }}" alt="検索アイコン">
+          検索
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('main.index') }}" aria-label="おしらせ">
+          <img class="nav-icon" src="{{ url_for('static', filename='images/notify.svg') }}" alt="おしらせアイコン">
+          おしらせ
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('main.index') }}" aria-label="お気に入り">
+          <img class="nav-icon" src="{{ url_for('static', filename='images/bookmark.svg') }}" alt="お気に入りアイコン">
+          お気に入り
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('main.index') }}" aria-label="メッセージ">
+          <img class="nav-icon" src="{{ url_for('static', filename='images/message.svg') }}" alt="メッセージアイコン">
+          メッセージ
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('main.profile') }}" aria-label="プロフィール">
+          <img class="nav-icon user-icon" src="{{ url_for('static', filename='images/profile.svg') }}" alt="プロフィールアイコン">
+          {{ current_user.username }}
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('main.index') }}" aria-label="設定">
+          <img class="nav-icon" src="{{ url_for('static', filename='images/settings.svg') }}" alt="設定アイコン">
+          設定
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('main.logout') }}" aria-label="ログアウト">
+          <img class="nav-icon" src="{{ url_for('static', filename='images/logout.svg') }}" alt="ログアウトアイコン">
+          ログアウト
+        </a>
+      </li>
+      {% else %}
+      <li>
+        <a href="{{ url_for('main.register') }}" role="link" aria-label="アカウントを作成する">
+          <img class="nav-icon" src="{{ url_for('static', filename='images/signup.svg') }}" alt="アカウント作成アイコン">
+          アカウントを作成する
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('main.login') }}" role="link" aria-label="ログイン">
+          <img class="nav-icon" src="{{ url_for('static', filename='images/login.svg') }}" alt="ログインアイコン">
+          ログイン
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+
+{% block script %}
+{% if current_user.is_authenticated %}
+<script type="module" src="{{ url_for('static', filename='js/pages/header.js') }}" defer></script>
+{% endif %}
+{% endblock %}

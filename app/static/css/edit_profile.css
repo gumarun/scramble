@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+main.page-edit_profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

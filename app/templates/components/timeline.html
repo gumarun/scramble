@@ -1,0 +1,177 @@
+<section class="time-line-container">
+  {% if current_user.is_authenticated %}
+  <!-- Add Post -->
+  <div class="add-post">
+  </div>
+  {% endif %}
+
+  <div class="post">
+    <!-- header -->
+    <header class="post__header">
+      <div class="post__header--item user-icon">
+        <a href="/profile/user_id">
+          <img src="{{ url_for('static', filename='images/profile.svg') }}">
+        </a>
+      </div>
+      <div class="post__header--item user-name">developer</div>
+      <div class="post__header--item user-id">dev_1122</div>
+      <div class="post__header--item date">たった今</div>
+      <div class="post__header--item option">
+        <img src="{{ url_for('static', filename='images/post_menu.svg') }}" alt="オプションアイコン">
+      </div>
+    </header>
+    <!-- content -->
+    <div class="post__content">
+      <p class="post__content--text">これは開発中の投稿です。</p>
+    </div>
+    <!-- footer -->
+    <footer class="post__footer">
+      <div class="post__footer--icon icon-toggle" aria-label="いいね">
+        <img data-id="like" src="{{ url_for('static', filename='images/like.svg') }}" alt="いいねアイコン">
+      </div>
+      <div class="post__footer--icon" aria-label="コメント">
+        <img src="{{ url_for('static', filename='images/comment.svg') }}" alt="コメントアイコン">
+      </div>
+      <div class="post__footer--icon icon-toggle" aria-label="引用投稿">
+        <img data-id="quote" src="{{ url_for('static', filename='images/quote.svg') }}" alt="引用投稿アイコン">
+      </div>
+      <div class="post__footer--icon icon-toggle" aria-label="ブックマーク">
+        <img data-id="bookmark" src="{{ url_for('static', filename='images/bookmark.svg') }}" alt="ブックマークアイコン">
+      </div>
+      <div class="post__footer--icon" aria-label="インサイト">
+        <img src="{{ url_for('static', filename='images/view.svg') }}" alt="インサイトアイコン">
+      </div>
+      <div class="post__footer--icon share"aria-label="シェア">
+        <img src="{{ url_for('static', filename='images/share.svg') }}" alt="シェアアイコン">
+      </div>
+    </footer>
+  </div>
+
+  <div class="post">
+    <!-- header -->
+    <header class="post__header">
+      <div class="post__header--item user-icon">
+        <a href="/profile/user_id">
+          <img src="{{ url_for('static', filename='images/profile.svg') }}">
+        </a>
+      </div>
+      <div class="post__header--item user-name">developer</div>
+      <div class="post__header--item user-id">test_1122</div>
+      <div class="post__header--item date">1分前</div>
+      <div class="post__header--item option">
+        <img src="{{ url_for('static', filename='images/post_menu.svg') }}" alt="オプションアイコン">
+      </div>
+    </header>
+    <!-- content -->
+    <div class="post__content">
+      <img class="post__content--img" src="{{ url_for('static', filename='images/test.jpg') }}" loading="lazy"></img>
+    </div>
+    <!-- footer -->
+    <footer class="post__footer">
+      <div class="post__footer--icon icon-toggle" aria-label="いいね">
+        <img data-id="like" src="{{ url_for('static', filename='images/like.svg') }}" alt="いいねアイコン">
+      </div>
+      <div class="post__footer--icon" aria-label="コメント">
+        <img src="{{ url_for('static', filename='images/comment.svg') }}" alt="コメントアイコン">
+      </div>
+      <div class="post__footer--icon icon-toggle" aria-label="引用投稿">
+        <img data-id="quote" src="{{ url_for('static', filename='images/quote.svg') }}" alt="引用投稿アイコン">
+      </div>
+      <div class="post__footer--icon icon-toggle" aria-label="ブックマーク">
+        <img data-id="bookmark" src="{{ url_for('static', filename='images/bookmark.svg') }}" alt="ブックマークアイコン">
+      </div>
+      <div class="post__footer--icon" aria-label="インサイト">
+        <img src="{{ url_for('static', filename='images/view.svg') }}" alt="インサイトアイコン">
+      </div>
+      <div class="post__footer--icon share"aria-label="シェア">
+        <img src="{{ url_for('static', filename='images/share.svg') }}" alt="シェアアイコン">
+      </div>
+    </footer>
+  </div>
+
+  <div class="post">
+    <!-- header -->
+    <header class="post__header">
+      <div class="post__header--item user-icon">
+        <a href="/profile/user_id">
+          <img src="{{ url_for('static', filename='images/profile.svg') }}">
+        </a>
+      </div>
+      <div class="post__header--item user-name">developer</div>
+      <div class="post__header--item user-id">test_1122</div>
+      <div class="post__header--item date">12分前</div>
+      <div class="post__header--item option">
+        <img src="{{ url_for('static', filename='images/post_menu.svg') }}" alt="オプションアイコン">
+      </div>
+    </header>
+    <!-- content -->
+    <div class="post__content">
+      <p class="post__content--text">
+        これは開発中の内容です。これは開発中の内容です。<br>これは開発中の内容です。これは開発中の内容です。これは開発中の内容です。これは開発中の内容です。これは開発中の内容です。<br>これは開発中の内容です。これは開発中の内容です。これは開発中の内容です。これは開発中の内容です。これは開発中の内容です。これは開発中の内容です。これは開発中の内容です。これは開発中の内容です。
+      </p>
+    </div>
+    <!-- footer -->
+    <footer class="post__footer">
+      <div class="post__footer--icon icon-toggle" aria-label="いいね">
+        <img data-id="like" src="{{ url_for('static', filename='images/like.svg') }}" alt="いいねアイコン">
+      </div>
+      <div class="post__footer--icon" aria-label="コメント">
+        <img src="{{ url_for('static', filename='images/comment.svg') }}" alt="コメントアイコン">
+      </div>
+      <div class="post__footer--icon icon-toggle" aria-label="引用投稿">
+        <img data-id="quote" src="{{ url_for('static', filename='images/quote.svg') }}" alt="引用投稿アイコン">
+      </div>
+      <div class="post__footer--icon icon-toggle" aria-label="ブックマーク">
+        <img data-id="bookmark" src="{{ url_for('static', filename='images/bookmark.svg') }}" alt="ブックマークアイコン">
+      </div>
+      <div class="post__footer--icon" aria-label="インサイト">
+        <img src="{{ url_for('static', filename='images/view.svg') }}" alt="インサイトアイコン">
+      </div>
+      <div class="post__footer--icon share"aria-label="シェア">
+        <img src="{{ url_for('static', filename='images/share.svg') }}" alt="シェアアイコン">
+      </div>
+    </footer>
+  </div>
+  
+  <div class="post">
+    <!-- header -->
+    <header class="post__header">
+      <div class="post__header--item user-icon">
+        <a href="/profile/user_id">
+          <img src="{{ url_for('static', filename='images/profile.svg') }}">
+        </a>
+      </div>
+      <div class="post__header--item user-name">developer</div>
+      <div class="post__header--item user-id">test_1122</div>
+      <div class="post__header--item date">32分前</div>
+      <div class="post__header--item option">
+        <img src="{{ url_for('static', filename='images/post_menu.svg') }}" alt="オプションアイコン">
+      </div>
+    </header>
+    <!-- content -->
+    <div class="post__content">
+      <img class="post__content--img" src="{{ url_for('static', filename='images/test2.png') }}" loading="lazy"></img>
+    </div>
+    <!-- footer -->
+    <footer class="post__footer">
+      <div class="post__footer--icon icon-toggle" aria-label="いいね">
+        <img data-id="like" src="{{ url_for('static', filename='images/like.svg') }}" alt="いいねアイコン">
+      </div>
+      <div class="post__footer--icon" aria-label="コメント">
+        <img src="{{ url_for('static', filename='images/comment.svg') }}" alt="コメントアイコン">
+      </div>
+      <div class="post__footer--icon icon-toggle" aria-label="引用投稿">
+        <img data-id="quote" src="{{ url_for('static', filename='images/quote.svg') }}" alt="引用投稿アイコン">
+      </div>
+      <div class="post__footer--icon icon-toggle" aria-label="ブックマーク">
+        <img data-id="bookmark" src="{{ url_for('static', filename='images/bookmark.svg') }}" alt="ブックマークアイコン">
+      </div>
+      <div class="post__footer--icon" aria-label="インサイト">
+        <img src="{{ url_for('static', filename='images/view.svg') }}" alt="インサイトアイコン">
+      </div>
+      <div class="post__footer--icon share"aria-label="シェア">
+        <img src="{{ url_for('static', filename='images/share.svg') }}" alt="シェアアイコン">
+      </div>
+    </footer>
+  </div>
+</section>

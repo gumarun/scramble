@@ -1,0 +1,56 @@
+/* bg-color */
+:root {
+  --bg-color-main: rgb(0, 0, 0);
+  --bg-color-secondary: rgb(16, 16, 16);
+  --bg-color-tertiary: rgb(32, 32, 32);
+  --bg-color-hover: rgb(227, 227, 227, 0.2);
+  --bg-color-submit: rgb(0, 150, 246);
+  --bg-color-cancel: rgb(88, 88, 88);
+}
+
+/* text-color */
+:root {
+  --text-color-main: rgb(227, 227, 227);
+  --text-color-secondary: rgb(141, 145, 146);
+  --text-color-highlight: rgb(103, 175, 226);
+  --text-color-error: rgb(234, 75, 86);
+}
+
+/* border-color */
+:root {
+  --border-color-main: rgba(100,100,100, 0.5);
+  --border-color-highlight: rgb(103, 175, 226);
+  --border-color-error: rgb(234, 75, 86);
+}
+
+/* outline */
+:root {
+  --outline-color-highlight: rgb(103, 175, 226);
+  --outline-color-error: rgb(234, 75, 86);
+}
+
+/* border-radius */
+:root {
+  --border-radius-8: 8px;
+  --border-radius-4: 4px;
+}
+
+/* transition */
+:root {
+  --transition-bg-05: background-color 0.5s;
+  --transition-opacity-02: opacity 0.2s;
+  --transition-opacity-03: opacity 0.3s;
+  --transition-opacity-03-ease: opacity 0.3s ease;
+  --transition-outline-03: outline 0.3s;
+}
+
+/* font-size */
+:root {
+  --font-size-xxs: 0.7rem;
+  --font-size-xs: 0.8rem;
+  --font-size-sm: 0.9rem;
+  --font-size-base: 16px;
+  --font-size-lg: 1.1rem;
+  --font-size-xl: 1.2rem;
+  --font-size-xxl: 1.3rem;
+}

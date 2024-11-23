@@ -1,0 +1,75 @@
+<form method="POST" action="{{ url_for('main.register') }}" autocomplete="off" novalidate>
+  
+  <!-- Flash Message -->
+  <div class="flash-message-box">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+        <span class="flash-message error-text {{ category }}">{{ message }}</span>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+
+  <!-- Hidden Field -->
+  {{ form.hidden_tag() }}
+
+  <!-- User ID -->
+  <div class="form-item">
+    <div class="form-input-wrap">
+      <span class="input-assist placeholder">ユーザーID</span>
+      <span class="input-assist char-count">
+        <span class="current-length">0</span>/
+        <span class="max-length">30</span>
+      </span>
+      {{ form.user_id() }}
+      <div class="field-error-box">
+        {% for error in form.user_id.errors %}
+        <span class="error-text">{{ error }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- User Name -->
+  <div class="form-item">
+    <div class="form-input-wrap">
+      <span class="input-assist placeholder">ユーザー名</span>
+      <span class="input-assist char-count">
+        <span class="current-length">0</span>/
+        <span class="max-length">30</span>
+      </span>
+      {{ form.username() }}
+      <div class="field-error-box">
+        {% for error in form.username.errors %}
+        <span class="error-text">{{ error }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Password -->
+  <div class="form-item">
+    <div class="form-input-wrap">
+      <span class="input-assist placeholder">パスワード</span>
+      <span class="input-assist char-count">
+        <span class="current-length">0</span>/
+        <span class="max-length">50</span>
+      </span>
+      {{ form.password() }}
+      <div class="field-error-box">
+        {% for error in form.password.errors %}
+        <span class="error-text">{{ error }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <div class="form-item">
+    <button class="form-button submit" type="submit" class="btn-submit">
+      {{ form.submit.label }}
+    </button>
+  </div>
+  
+</form>
