@@ -1,0 +1,37 @@
+/* Noto Sans JP */
+@font-face {
+  font-family: 'Noto Sans JP';
+  src:
+    url('../font/Noto_Sans_JP/NotoSansJP-Regular.woff2') format('woff2'),
+    url('../font/Noto_Sans_JP/NotoSansJP-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  src:
+    url('../font/Noto_Sans_JP/NotoSansJP-Bold.woff2') format('woff2'),
+    url('../font/Noto_Sans_JP/NotoSansJP-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Roboto */
+@font-face {
+  font-family: 'Roboto';
+  src:
+    url('../font/Roboto/Roboto-Regular.woff2') format('woff2'),
+    url('../font/Roboto/Roboto-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src:
+    url('../font/Roboto/Roboto-Bold.woff2') format('woff2'),
+    url('../font/Roboto/Roboto-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}

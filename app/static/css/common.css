@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+/* common
+================================================ */
+:root {
+  /* bg-color */
+  --bg-color-main: rgb(21, 21, 21);
+  /* text-color */
+  --text-color-main: rgb(227, 227, 227);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  line-height: 1.5;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--text-color-main);
+  background-color: var(--bg-color-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+}
+
+dd,
+dl,
+figure,
+ul,
+ol,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+a,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display:block;
+}
+
+label {
+  cursor: pointer;
+  user-select: none;
+}
+
+a {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+  border: 0;
+}
