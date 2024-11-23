@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px 16px;
+  border-left: 1px solid var(--border-color-main);
+}
+
+.copyright {
+  color: var(--text-color-secondary);
+}

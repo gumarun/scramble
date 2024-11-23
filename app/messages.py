@@ -1,15 +1,35 @@
-class Messages():
-    # Requiredエラーメッセージ
-    USER_ID_REQUIRED_ERROR = 'ユーザーIDを入力してください'
-    USERNAME_REQUIRED_ERROR = 'ユーザー名を入力してください'
-    PASSWORD_REQUIRED_ERROR = 'パスワードを入力してください'
+class AuthError():
+    """ユーザー登録認、証時のエラーメッセージ"""
+    exists_user_id = 'このユーザーIDはすでに使用されています'
+    exists_user_name = 'このユーザー名はすでに使用されています'
+    invalid_id_or_name = 'ユーザー名またはパスワードが無効です'
 
-    # Lengthエラーメッセージ
-    USERNAME_LENGTH_ERROR = 'ユーザー名は2文字以上で入力してください'
-    USER_ID_LENGTH_ERROR = 'ユーザーIDは3~30文字で入力してください'
-    PASSWORD_LENGTH_ERROR = 'パスワードは8~24文字で入力してください'
 
-    # その他バリデーションエラーメッセージ
-    USER_ID_REGEXP_ERROR = '無効な文字が含まれています'
-    USER_NAME_REGEXP_ERROR = 'ユーザー名を入力してください'
-    PASSWORD_REGEXP_ERROR = 'パスワードはアルファベットと数字を含む必要があります'
+class RequiredError():
+    """必須項目の未入力エラーメッセージ"""
+    user_id = 'ユーザーIDを入力してください'
+    username = 'ユーザー名を入力してください'
+    password = 'パスワードを入力してください'
+
+
+class LengthError():
+    """文字数制限のエラーメッセージ"""
+    user_id = 'ユーザーIDは3~30文字で入力してください'
+    username = 'ユーザー名は2文字以上で入力してください'
+    password = 'パスワードは8~24文字で入力してください'
+    location = '場所は15文字以下で入力してください'
+    link = '場所は255文字以下で入力してください'
+    intro = '自己紹介は255文字以下で入力してください'
+
+
+class ValidateError:
+    """バリデーションエラーメッセージ"""
+    invalid_user_id = '無効な文字が含まれています'
+    invalid_password_format = 'パスワードはアルファベットと数字を含む必要があります'
+    password_mismatch = 'パスワードが一致しません'
+
+
+auth_error = AuthError()
+required_error = RequiredError()
+length_error = LengthError()
+validate_error = ValidateError()

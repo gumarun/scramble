@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+.root-container {
+  display: grid;
+  grid-template-columns: 400px 1fr 360px;
+  grid-template-rows: 100vh;
+}
+
+.main-container {
+  max-width: 600px;
+  margin: 0 auto;
+}

@@ -1,28 +1,29 @@
-.root-header {
-  display: grid;
-  grid-template-rows: auto 1fr;
+@charset "utf-8";
+
+.global-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100vh;
   background-color: var(--bg-color-secondary);
 }
 
-/* ロゴ */
-.logo {
-  display: flex;
-  align-items: center;
+/* Logo */
+.site-logo {
   padding: 24px 16px;
 }
 
-.logo a {
+.site-logo a {
   width: 100%;
   padding: 0 16px;
-  border-radius: var(--border-radius-8);
-  transition: var(--transition-bg-05);
+  transition: var(--transition-opacity-03-ease);
+  opacity: 0.9;
 }
-.logo a:hover {
-  background-color: var(--bg-color-hover);
+.site-logo a:hover {
+  opacity: 1;
 }
 
-/* ナビゲーション */
+/* Navigation */
 .global-nav {
   display: flex;
   flex-direction: column;
@@ -30,11 +31,9 @@
   padding: 16px;
 }
 
-/* リスト */
 .global-nav ul {
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 .global-nav li {
@@ -52,14 +51,15 @@
   height: 100%;
   padding: 16px;
   line-height: 32px;
+  overflow-x: hidden;
+  white-space: nowrap;
 }
 
 .nav-icon {
   width: 32px;
-  height: auto;
   margin-right: 8px;
 }
 
-.profile-icon {
+.user-icon {
   border-radius: 50%;
 }

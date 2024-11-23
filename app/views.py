@@ -1,16 +1,20 @@
 from flask import Blueprint
 from flask import flash
-
 from flask import render_template
 from flask import redirect
 from flask import url_for
+from flask_login import current_user
 from flask_login import login_user
 from flask_login import logout_user
+from flask_login import login_required
+from flask import request
 
 from app.models import db
 from app.models import User
 from app.forms import SignupForm
 from app.forms import LoginForm
+from app.forms import EditProfileForm
+from app.messages import auth_error
 
 
 # ブループリントを作成
@@ -22,6 +26,7 @@ main = Blueprint('main', __name__)
 def index():
     signup_form = SignupForm()
     login_form = LoginForm()
+
     return render_template(
         'index.html',
         signup_form=signup_form,
@@ -36,7 +41,6 @@ def register():
 
     # バリデーションに失敗した場合
     if not form.validate_on_submit():
-        form.user_id.data = ''
         return render_template('register.html', form=form)
 
     # 入力データを正規化
@@ -46,30 +50,27 @@ def register():
 
     # 重複確認
     errors = False
-
     if User.query.filter_by(user_id=user_id).first():
-        flash('このユーザーIDはすでに使用されています', 'error-text')
+        flash(auth_error.exists_user_id, 'user-id-error')
         errors = True
-        form.user_id.data = ''
     if User.query.filter_by(username=username).first():
-        flash('このユーザー名はすでに使用されています', 'error-text')
+        flash(auth_error.exists_user_name, 'username-error')
         errors = True
-        form.username.data = ''
     if errors:
         return render_template('register.html', form=form)
 
-    # ユーザーを作成し、DBにコミット
     user = User(
         user_id=user_id,
         username=username,
-        password=password
+        password=password,
+        location=None,
+        link=None,
+        intro=None
     )
     db.session.add(user)
     db.session.commit()
 
-    # ユーザーをログインさせてトップページにリダイレクト
     login_user(user)
-    flash('ようこそ！')
     return redirect(url_for('main.index'))
 
 
@@ -80,24 +81,21 @@ def login():
 
     # バリデーションに失敗した場合
     if not form.validate_on_submit():
-        form.user_id.data = ''
         return render_template('login.html', form=form)
 
     # 入力データを正規化
     user_id = form.user_id.data.strip()
     password = form.password.data.strip()
-    
+
     user = User.query.filter_by(user_id=user_id).first()
 
     # 認証に成功した場合
     if user and user.check_password(password):
         login_user(user, remember=form.remember_me.data)
-        flash('おかえりなさい！')
         return redirect(url_for('main.index'))
 
     # 認証に失敗した場合
-    form.user_id.data = ''
-    flash('ユーザー名またはパスワードが無効です', 'error-text')
+    flash(auth_error.invalid_id_or_name, 'error-text')
     return render_template('login.html', form=form)
 
 
@@ -105,5 +103,34 @@ def login():
 @main.route('/logout')
 def logout():
     logout_user()
-    flash('ログアウトしました')
     return redirect(url_for('main.index'))
+
+
+# プロフィール
+@main.route('/profile')
+@login_required
+def profile():
+    return render_template('profile.html', user=current_user)
+
+
+# プロフィール更新
+@main.route('/edit_profile', methods=['GET', 'POST'])
+@login_required
+def edit_profile():
+    form = EditProfileForm()
+
+    if request.method == 'POST' and form.validate_on_submit():
+        current_user.username = form.username.data
+        current_user.location = form.location.data
+        current_user.link = form.link.data
+        current_user.intro = form.intro.data
+        db.session.commit()
+        return redirect(url_for('main.profile'))
+    
+    if request.method == 'GET':
+        form.username.data = current_user.username
+        form.location.data = current_user.location
+        form.link.data = current_user.link
+        form.intro.data = current_user.intro
+
+    return render_template('edit_profile.html', form=form)

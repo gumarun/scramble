@@ -7,7 +7,12 @@
   <title>{% block title %}{% endblock %}</title>
   
   <!-- CSS -->
+  <link rel="preload" as="style" href="{{ url_for('static', filename='css/variables.css') }}" onload="this.rel='stylesheet'">
   <link rel="preload" as="style" href="{{ url_for('static', filename='css/common.css') }}" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="{{ url_for('static', filename='css/root.css') }}" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="{{ url_for('static', filename='css/loading.css') }}" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="{{ url_for('static', filename='css/header.css') }}" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="{{ url_for('static', filename='css/footer.css') }}" onload="this.rel='stylesheet'">
   
   <!-- Preload Noto Sans JP フォント -->
   <link rel="preload" href="{{ url_for('static', filename='font/Noto_Sans_JP/NotoSansJP-Regular.woff2') }}" as="font" type="font/woff2" crossorigin="anonymous">
@@ -21,35 +26,36 @@
   <link rel="preload" href="{{ url_for('static', filename='font/Roboto/Roboto-Bold.woff2') }}" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="{{ url_for('static', filename='font/Roboto/Roboto-Bold.woff') }}" as="font" type="font/woff" crossorigin="anonymous">
 
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}">
   {% block head %}{% endblock %}
 </head>
 
 <body>
-  <!-- Main -->
-  <main>
-    <div class="root-main">
-    {% block root_content %}
-    
-    <!-- Header -->
-    {% block header_content %}{% endblock %}
-    
-    <!-- Main Contents -->
-    {% block main_content %}{% endblock %}
-    
-    <!-- Sidebar -->
-    {% block aside_content %}{% endblock %}
-    
-    {% endblock %}
+  <!-- Loading Screen -->
+  <!-- <div class="loading-screen" id="loading-screen">
+    <h1>scramble!</h1>
+    <div class="background-lines">
+      <div class="line horizontal"></div>
+      <div class="line vertical"></div>
     </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="root-footer">
-  {% block footer %}{% endblock %}
-  </footer>
-
-  <!-- Script -->
-  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+  </div> -->
+  
+  <!-- Root Element -->
+  <div class="root-container">
+    <!-- Header Section -->
+    {% include 'components/header.html' %}
+    
+    <!-- Main Contents Section -->
+    <main class="main-container">
+    {% block main_content %}{% endblock %}
+    </main>
+    
+    <!-- Footer Section -->
+    {% include 'components/footer.html' %}
+  </div>
+  
+  <!-- <script src="{{ url_for('static', filename='js/loading.js') }}" defer></script> -->
+  <script type="module" src="{{ url_for('static', filename='js/main.js') }}" defer></script>
   {% block script %}{% endblock %}
 </body>
 </html>

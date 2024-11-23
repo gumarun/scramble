@@ -1,82 +1,19 @@
-{% extends 'base.html' %}
+{% extends 'layout.html' %}
 
 <!-- Title -->
-{% block title %}新規登録{% endblock %}
+{% block title %}アカウント新規作成{% endblock %}
 
 <!-- Head -->
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
 {% endblock %}
 
-<!-- Root Block Content -->
-{% block root_content %}
-<div class="form-container">
-  <!-- Logo -->
-  <h1 class="logo"><a href="{{ url_for('main.index') }}">LOGO</a></h1>
-  
-  <!-- Form -->
-  <form method="POST" action="{{ url_for('main.register') }}" autocomplete="off" novalidate>
+{% block main_content %}
+<!-- Form Section -->
+{% include 'components/form_register.html' %}
+{% endblock %}
 
-    <!-- Heading -->
-    <h2 class="form-heading form-item">アカウントを作成する</h2>
-
-    <!-- Flash Message -->
-    <div class="flash-message-box">
-      {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-          {% for category, message in messages %}
-            <span class="flash-message {{ category }}">{{ message }}</span>
-          {% endfor %}
-        {% endif %}
-      {% endwith %}
-    </div>
-
-    <!-- Hidden Field -->
-    {{ form.hidden_tag() }}
-
-    <!-- User ID -->
-    <div class="form-item">
-      <div class="form-item-group">
-        <span class="placeholder">ユーザーID</span>
-        {{ form.user_id() }}
-      </div>
-      {% for error in form.user_id.errors %}
-      <span class="error-text">{{ error }}</span>
-      {% endfor %}
-    </div>
-
-    <!-- User Name -->
-    <div class="form-item">
-      <div class="form-item-group">
-        <span class="placeholder">ユーザー名</span>
-        {{ form.username() }}
-      </div>
-      {% for error in form.username.errors %}
-      <span class="error-text">{{ error }}</span>
-      {% endfor %}
-    </div>
-
-    <!-- Password -->
-    <div class="form-item">
-      <div class="form-item-group">
-        <span class="placeholder">パスワード</span>
-        {{ form.password() }}
-      </div>
-      {% for error in form.password.errors %}
-      <span class="error-text">{{ error }}</span>
-      {% endfor %}
-    </div>
-
-    <!-- Submit -->
-    <div class="form-item">
-      <button class="submit" type="submit" class="btn-submit">
-        {{ form.submit.label }}
-      </button>
-    </div>
-  </form>
-</div>
-{% endblock %}<!-- root -->
-
+<!-- Script -->
 {% block script %}
-<script src="{{ url_for('static', filename='js/form.js') }}" defer></script>
+<script type="module" src="{{ url_for('static', filename='js/pages/register.js') }}" defer></script>
 {% endblock %}
