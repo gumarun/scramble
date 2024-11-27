@@ -20,13 +20,15 @@ class LengthError():
     location = '場所は15文字以下で入力してください'
     link = '場所は255文字以下で入力してください'
     intro = '自己紹介は255文字以下で入力してください'
-
+    birthday = '生年月日は数字8桁で入力してください'
 
 class ValidateError:
     """バリデーションエラーメッセージ"""
     invalid_user_id = '無効な文字が含まれています'
     invalid_password_format = 'パスワードはアルファベットと数字を含む必要があります'
     password_mismatch = 'パスワードが一致しません'
+    invalid_birthday_year = '1900年から現在の年までの範囲で入力してください'
+    invalid_birthday = '入力された生年月日は無効です'
 
 
 auth_error = AuthError()

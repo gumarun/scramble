@@ -40,7 +40,7 @@
 /* Info Root */
 .profile-info {
   display: flex;
-  gap: 16px;
+  gap: 24px;
   flex-direction: column;
   justify-content: flex-end;
   width: 100%;

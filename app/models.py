@@ -14,6 +14,7 @@ class User(UserMixin, db.Model):
     location = db.Column(db.String(15), nullable=True)
     link = db.Column(db.String(100), nullable=True)
     intro = db.Column(db.String(150), nullable=True)
+    birthday = db.Column(db.Date, nullable=True)
 
     def __init__(
             self,
@@ -22,7 +23,8 @@ class User(UserMixin, db.Model):
             password,
             location,
             link,
-            intro
+            intro,
+            birthday
         ):
         self.user_id = user_id
         self.username = username
@@ -30,6 +32,7 @@ class User(UserMixin, db.Model):
         self.location = location
         self.link = link
         self.intro = intro
+        self.birthday = birthday
 
     def set_password(self, password):
         """パスワードをハッシュ化する

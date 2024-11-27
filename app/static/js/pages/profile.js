@@ -1,7 +1,6 @@
 'use strict';
 
 import { truncateText } from '../common/components/truncate.js';
-// import { truncateText } from '../common/utils/form/sanitize.js';
 import { toggleIconState } from '../common/components/toggle_icon.js';
 
 truncateText('.profile-link', 23);
