@@ -1,12 +1,16 @@
+from datetime import datetime
+
 from flask_wtf import FlaskForm
 from wtforms import BooleanField
 from wtforms import PasswordField
 from wtforms import StringField
 from wtforms import SubmitField
 from wtforms import TextAreaField
+from wtforms import ValidationError
 from wtforms.validators import DataRequired
 from wtforms.validators import Length
 from wtforms.validators import Regexp
+from wtforms.validators import Optional
 
 from app import regex_patterns
 from app.messages import required_error
@@ -162,8 +166,40 @@ class EditProfileForm(CommonUserForm):
             aria_label='自己紹介'
         )
     )
+    
+    birthday = StringField(
+        validators=[
+            Optional(),
+            Length(min=8, max=8, message=length_error.birthday)
+        ],
+        render_kw=RenderKwConfig().get_str_render_kw(
+            class_name='birthday',
+            aria_label='生年月日'
+        )
+    )
 
     submit = SubmitField('保存')
+
+    def validate_birthday(self, field):
+        """誕生日（YYYYMMDD）をバリデーション"""
+        
+        # フォームから受け取った値
+        birthday_str = field.data.strip()
+        
+        if len(birthday_str) != 8:
+            raise ValidationError
+        
+        try:
+            birthday_date = datetime.strptime(birthday_str, '%Y%m%d').date()
+            field.data = birthday_date
+        except ValueError:
+            raise ValidationError(validate_error.invalid_birthday)
+        
+        current_year = datetime.now().year
+        
+        # 年の範囲チェック
+        if birthday_date.year < 1900 or birthday_date.year > current_year:
+            raise ValidationError(validate_error.invalid_birthday_year)
 
 
 class LoginForm(FlaskForm):

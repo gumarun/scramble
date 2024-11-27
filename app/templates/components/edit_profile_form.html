@@ -24,7 +24,8 @@
       <div class="form-input-wrap">
         <span class="input-assist placeholder">ユーザー名</span>
         <span class="input-assist char-count">
-          <span class="current-length">0</span>/
+          <span class="current-length">0</span>
+          <span>/</span>
           <span class="max-length">30</span>
         </span>
         {{ form.username() }}
@@ -35,13 +36,32 @@
         {% endfor %}
       </div>
     </div>
-    
+
+    <!-- Birthday -->
+    <div class="form-item">
+      <div class="form-input-wrap">
+        <span class="input-assist placeholder">生年月日(例:20161122)</span>
+        <span class="input-assist char-count">
+          <span class="current-length">0</span>
+          <span>/</span>
+          <span class="max-length">8</span>
+        </span>
+        {{ form.birthday() }}
+      </div>
+      <div class="field-error-box">
+        {% for error in form.birthday.errors %}
+        <span class="error-text">{{ error }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
     <!-- Location -->
     <div class="form-item">
       <div class="form-input-wrap">
         <span class="input-assist placeholder">場所</span>
         <span class="input-assist char-count">
-          <span class="current-length">0</span>/
+          <span class="current-length">0</span>
+          <span>/</span>
           <span class="max-length">15</span>
         </span>
         {{ form.location() }}
@@ -52,13 +72,14 @@
         {% endfor %}
       </div>
     </div>
-    
+
     <!-- Link -->
     <div class="form-item">
       <div class="form-input-wrap">
         <span class="input-assist placeholder">ウェブサイト</span>
         <span class="input-assist char-count">
-          <span class="current-length">0</span>/
+          <span class="current-length">0</span>
+          <span>/</span>
           <span class="max-length">100</span>
         </span>
         {{ form.link() }}
@@ -69,13 +90,14 @@
         {% endfor %}
       </div>
     </div>
-    
+
     <!-- Intro -->
     <div class="form-item">
       <div class="form-input-wrap">
         <span class="input-assist placeholder">自己紹介</span>
         <span class="input-assist char-count">
-          <span class="current-length">0</span>/
+          <span class="current-length">0</span>
+          <span>/</span>
           <span class="max-length">150</span>
         </span>
         {{ form.intro() }}
@@ -86,7 +108,7 @@
         {% endfor %}
       </div>
     </div>
-    
+
     <!-- Submit -->
     <div class="form-item">
       <button class="form-button submit" type="submit" class="btn-submit">
@@ -96,6 +118,6 @@
         キャンセル
       </a>
     </div>
-    
+
   </form>
 </section>
